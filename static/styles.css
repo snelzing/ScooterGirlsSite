@@ -82,4 +82,17 @@ to {
     font-family: "Book Antiqua";
 }
 
+.intro-box {
+
+}
+
+.intro {
+    background-color: #4f4f4f;
+    padding-top: 2rem;
+    padding-right: 5rem;
+    padding-left: 2rem;
+    padding-bottom: 5rem;
+    font-size: larger;
+    color: white;
+}
 
