@@ -1,18 +1,19 @@
-h1 {
+.headline {
     background-color: grey;
     padding-bottom: 2rem;
     padding-top: 5rem;
     margin-bottom: -0.5px !important;
     text-align: center;
-    font-family: "Rubik"
+    font-family: "Rubik";
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -15px 3px rgba(0,0,0,0.1);
 }
-
 
 
 .navbar {
     justify-content: end !important;
     background-color: #5E5694;
     padding: 4rem;
+    box-shadow: 0 3px 26px rgba(0,0,0,1), inset 0 -3px 3px rgba(0,0,0,0.1);
 }
 
 .pic-label {
@@ -20,6 +21,7 @@ h1 {
     font-family: "Rubik";
     padding-top: 1rem;
     font-weight: 600;
+        box-shadow: 0 30px 26px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
 }
 
 .nav-link {
@@ -62,6 +64,22 @@ body {
 to {
     margin-left: 0%;
     width: 100%;
+}
+
+.rounded-circle {
+    border-radius: 100%;
+    box-shadow: 0 30px 26px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+}
+
+.hello::first-letter {
+    font-size: 70px;
+    font-family: "Book Antiqua";
+    font-weight: bold;
+}
+
+.my-name {
+    font-size: 5rem;
+    font-family: "Book Antiqua";
 }
 
 
