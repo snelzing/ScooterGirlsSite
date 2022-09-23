@@ -1,0 +1,23 @@
+.main-panel {
+    height: 100vh;
+    margin-bottom:0;
+
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+.col-sm-4 {
+    padding: 4rem !important;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
