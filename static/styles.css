@@ -1,23 +1,67 @@
-.main-panel {
-    height: 100vh;
-    margin-bottom:0;
+h1 {
+    background-color: grey;
+    padding-bottom: 2rem;
+    padding-top: 5rem;
+    margin-bottom: -0.5px !important;
+    text-align: center;
+    font-family: "Rubik"
+}
 
-    animation-duration: 3s;
+
+
+.navbar {
+    justify-content: end !important;
+    background-color: #5E5694;
+    padding: 4rem;
+}
+
+.pic-label {
+    text-align: center;
+    font-family: "Rubik";
+    padding-top: 1rem;
+    font-weight: 600;
+}
+
+.nav-link {
+    padding-left: 3rem;
+    font-family: "Rubik"
+}
+
+body {
+    background-color: #5E5694 !important;
+}
+
+.main-panel {
+    background-color: #5E5694 !important;
+    height: 80vh;
+    width: 100%;
+    margin-bottom: 0;
+    margin-left: 0.4rem;
+    animation-duration: 4s;
     animation-name: slidein;
 }
 
-.col-sm-4 {
-    padding: 4rem !important;
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
 }
 
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%;
-  }
+.pic-box {
+    max-width: 99.5vw;
+    background-color: #5E5694;
+    justify-content: space-around;
+    align-content: space-between;
+}
 
-  to {
+.pic-box > row {
+    background-color: #5E5694;
+}
+
+to {
     margin-left: 0%;
     width: 100%;
-  }
 }
+
+
