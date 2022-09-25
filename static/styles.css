@@ -5,7 +5,7 @@
     margin-bottom: -0.5px !important;
     text-align: center;
     font-family: "Rubik";
-    box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -15px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), inset 0 -15px 3px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -13,7 +13,7 @@
     justify-content: end !important;
     background-color: #5E5694;
     padding: 4rem;
-    box-shadow: 0 3px 26px rgba(0,0,0,1), inset 0 -3px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 26px rgba(0, 0, 0, 1), inset 0 -3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .pic-label {
@@ -21,13 +21,24 @@
     font-family: "Rubik";
     padding-top: 1rem;
     font-weight: 600;
-        box-shadow: 0 30px 26px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 30px 26px rgba(0, 0, 0, 0.3), inset 0 -3px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .nav-link {
-    padding-left: 3rem;
-    font-family: "Rubik"
+    font-family: "Rubik";
 }
+
+.nav-item {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+}
+
 
 body {
     background-color: #5E5694 !important;
@@ -68,7 +79,7 @@ to {
 
 .rounded-circle {
     border-radius: 100%;
-    box-shadow: 0 30px 26px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 30px 26px rgba(0, 0, 0, 0.3), inset 0 -3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .hello::first-letter {
@@ -82,10 +93,6 @@ to {
     font-family: "Book Antiqua";
 }
 
-.intro-box {
-
-}
-
 .intro {
     background-color: #4f4f4f;
     padding-top: 2rem;
@@ -94,5 +101,24 @@ to {
     padding-bottom: 5rem;
     font-size: larger;
     color: white;
+    box-shadow: 0 30px 26px rgba(0, 0, 0, 0.3), inset 0 -3px 3px rgba(0, 0, 0, 0.1);
 }
 
+#thm_badge {
+    padding-top: 3.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.history {
+    visibility: hidden;
+}
+
+.github-badge.octo {
+    margin-left: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+   .navbar {
+        padding-left: 15rem;
+  }
+}
