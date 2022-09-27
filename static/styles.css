@@ -8,6 +8,10 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), inset 0 -15px 3px rgba(0, 0, 0, 0.1);
 }
 
+p {
+    font-family: "Rubik"
+}
+
 
 .navbar {
     justify-content: end !important;
@@ -27,6 +31,7 @@
 
 .nav-link {
     font-family: "Rubik";
+
 }
 
 .nav-item {
@@ -84,13 +89,13 @@ to {
 
 .hello::first-letter {
     font-size: 70px;
-    font-family: "Book Antiqua";
-    font-weight: bold;
+    font-family: "Rubik";
+    font-weight: 200;
 }
 
 .my-name {
     font-size: 5rem;
-    font-family: "Book Antiqua";
+    font-family: "Rubik";
 }
 
 .intro {
