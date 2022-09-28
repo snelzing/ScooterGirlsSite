@@ -11,3 +11,4 @@ class Contact(models.Model):
         Email,
         on_delete=models.CASCADE,
     )
+    description = models.CharField(max_length=500)
