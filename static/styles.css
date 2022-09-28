@@ -6,6 +6,7 @@
     text-align: center;
     font-family: "Rubik";
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), inset 0 -15px 3px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 2px 3px black;
 }
 
 p {
@@ -100,7 +101,7 @@ to {
 .my-name {
     font-size: 5rem;
     font-family: "Rubik";
-    text-shadow: 2px 5px black;
+    text-shadow: 2px 5px 3px black;
 }
 
 .intro {
@@ -112,7 +113,7 @@ to {
     font-size: larger;
     color: white;
     box-shadow: 0 30px 26px rgba(0, 0, 0, 0.3), inset 0 -3px 3px rgba(0, 0, 0, 0.1);
-    text-shadow: 2px 2px black;
+    text-shadow: 1px 1px 3px black;
 }
 
 #thm_badge {
@@ -144,6 +145,6 @@ to {
     transform: rotate(22deg);
     margin-left: 17rem;
     margin-top: 1rem;
-    text-shadow: 2px 2px black;
+    text-shadow: 2px 2px 3px black;
 
 }

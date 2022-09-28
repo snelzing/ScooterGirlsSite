@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
 from main.forms import InputForm
+from .models import Email, Contact
 
 
 class HomePageView(TemplateView):
@@ -39,10 +40,10 @@ class ContactView(View):
         form = InputForm(request.POST)
         if not form.is_valid():
             return render(request, self.template_name, {"form": form})
-        screen_name = form.cleaned_data['screen_name']
+        name = form.cleaned_data['name']
         email_str = form.cleaned_data['email']
-        print(screen_name, email_str)
+        print(name, email_str)
         email, created = Email.objects.get_or_create(email__iexact=email_str, defaults={'email': email_str})
         print(email)
-        Post.objects.create(email=email, screen_name=screen_name)
+        Contact.objects.create(email=email, screen_name=name)
         return redirect('thanks')
