@@ -1,4 +1,6 @@
+from django.shortcuts import render
 from django.views.generic import TemplateView, View
+from main.forms import InputForm
 
 
 class HomePageView(TemplateView):
@@ -21,8 +23,8 @@ class WebsiteWorkView(TemplateView):
     template_name = "tech-services/website-work.html"
 
 
-class HomePageView(View):
-    template_name = "home.html"
+class ContactView(View):
+    template_name = "contact.html"
 
     # def form_valid(self, form):
     #     # This method is called when valid form data has been POSTed.
