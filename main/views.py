@@ -1,11 +1,21 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,reverse
 from django.views.generic import TemplateView, View
 from main.forms import InputForm
+from scripts.get_doggo import GetDoggo
 from .models import Email, Contact
 
 
 class HomePageView(TemplateView):
     template_name = "home.html"
+
+    ## would like to eventually have it so that it will put random doggo pic in the thank you page
+    ## Need to figure out how to wrangle httpresponse for that.
+    # dog_pic = GetDoggo.get_doggo("https://random.dog/woof")
+    # print("here is the result", dog_pic)
+
+
+class ThanksPageView(TemplateView):
+    template_name = "thanks.html"
 
 
 class DeviceWorkView(TemplateView):
@@ -45,5 +55,5 @@ class ContactView(View):
         print(name, email_str)
         email, created = Email.objects.get_or_create(email__iexact=email_str, defaults={'email': email_str})
         print(email)
-        Contact.objects.create(email=email, screen_name=name)
+        Contact.objects.create(email=email, name=name)
         return redirect('thanks')

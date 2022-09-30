@@ -59,6 +59,7 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+migrations/
 
 # Flask stuff:
 instance/
@@ -123,3 +124,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# My own stuff
+copy_text.txt
