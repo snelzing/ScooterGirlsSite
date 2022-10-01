@@ -3,7 +3,7 @@ from django import forms
 # from .models import Email, Contact, Message
 
 
-class InputForm(forms.Form):
+class ContactForm(forms.Form):
     name = forms.CharField(required=True)
 
     # doing EmailInput makes the field not show up on the webpage

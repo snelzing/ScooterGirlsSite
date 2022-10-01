@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect,reverse
+from django.shortcuts import render, redirect, reverse
 from django.views.generic import TemplateView, View
-from main.forms import InputForm
+from main.forms import ContactForm
 from scripts.get_doggo import GetDoggo
 from .models import Email, Contact
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 
 class HomePageView(TemplateView):
@@ -37,23 +39,26 @@ class WebsiteWorkView(TemplateView):
 class ContactView(View):
     template_name = "contact.html"
 
-    # def form_valid(self, form):
-    #     # This method is called when valid form data has been POSTed.
-    #     # It should return an HttpResponse.
-    #     return super().form_valid(form)
-
     def get(self, request, *args, **kwargs):
-        form = InputForm()
+        form = ContactForm()
         return render(request, self.template_name, {"form": form})
 
     def post(self, request, *args, **kwargs):
-        form = InputForm(request.POST)
-        if not form.is_valid():
-            return render(request, self.template_name, {"form": form})
-        name = form.cleaned_data['name']
-        email_str = form.cleaned_data['email']
-        print(name, email_str)
-        email, created = Email.objects.get_or_create(email__iexact=email_str, defaults={'email': email_str})
-        print(email)
-        Contact.objects.create(email=email, name=name)
-        return redirect('thanks')
+        if request.method == 'POST':
+            form = ContactForm(request.POST)
+            if form.is_valid():
+                subject = "Website Inquiry"
+                body = {
+                    'name': form.cleaned_data['name'],
+                    'email': form.cleaned_data['email'],
+                    'message': form.cleaned_data['message'],
+                }
+                message = "\n".join(body.values())
+
+                try:
+                    send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
+                except BadHeaderError:
+                    return HttpResponse('Invalid header found.')
+
+        form = ContactForm()
+        return render(request, "thanks.html", {'form': form})
