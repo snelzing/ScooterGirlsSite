@@ -1,3 +1,4 @@
+from django.contrib.sites import requests
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import TemplateView, View
 from main.forms import ContactForm
@@ -9,11 +10,6 @@ from django.http import HttpResponse
 
 class HomePageView(TemplateView):
     template_name = "home.html"
-
-    ## would like to eventually have it so that it will put random doggo pic in the thank you page
-    ## Need to figure out how to wrangle httpresponse for that.
-    # dog_pic = GetDoggo.get_doggo("https://random.dog/woof")
-    # print("here is the result", dog_pic)
 
 
 class ThanksPageView(TemplateView):
@@ -60,5 +56,6 @@ class ContactView(View):
                 except BadHeaderError:
                     return HttpResponse('Invalid header found.')
 
+        doggo = GetDoggo.get_doggo("https://random.dog/woof?filter=mp4,webm")
         form = ContactForm()
-        return render(request, "thanks.html", {'form': form})
+        return render(request, "thanks.html", {'form': form, 'doggo': doggo})

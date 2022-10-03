@@ -129,6 +129,10 @@ to {
     margin-left: 0.5rem;
 }
 
+.drowning {
+    margin-top: 5rem;
+}
+
 @media only screen and (max-width: 600px) {
     .navbar {
         padding-left: 15rem;
@@ -139,14 +143,25 @@ to {
     left: 0;
     bottom: 0;
     width: 100%;
+    position: fixed;
 }
 
 .open-to-hire {
     transform: rotate(22deg);
     margin-left: 17rem;
-    margin-top: 1rem;
+    margin-top: 4rem;
     text-shadow: 2px 2px 3px black;
 
+}
+
+#dog-img {
+   max-width: 50rem;
+    margin-top: 5rem;
+}
+
+.skill-page {
+    color: white;
+    margin-top: 7rem;
 }
 
 @media (max-width: 640px) {
@@ -157,5 +172,13 @@ to {
     .form {
         width: 50vw;
         margin-left: -70px;
+    }
+
+    .drowning {
+        visibility: hidden;
+    }
+
+    .footer {
+        position: relative;
     }
 }

@@ -1,5 +1,6 @@
 import requests
 
+
 class GetDoggo:
 
     @staticmethod
@@ -8,6 +9,6 @@ class GetDoggo:
         if response.status_code == 200:
             print("successfully fetched the data")
             print(response.text)
-            doggo = f'<img id="dog-img" src="{response.text}">'
+            doggo = response.text
             return doggo
-        return
+        return "Could not get doggo picture"

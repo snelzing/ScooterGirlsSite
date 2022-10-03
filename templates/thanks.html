@@ -4,9 +4,15 @@
 {% block content %}
 
 <div style="margin:10rem; color: white">
-    thnaks
 
-    Here's a pic of a random doggo:
-    {{ dog_pic }}
+    <h2> Thanks for contacting me! I will try to reach back out as soon as possible. </h2>
+
+    <br>
+    Here's a pic of a random doggo (using the  <a style="color: white" target="_blank" href="https://github.com/adenflorian/random.dog">random dog api</a>)
+
+    <div>
+        <img id="dog-img" alt="cute random Doggo" src="https://random.dog/{{ doggo }}">'
+    </div>
 </div>
+
 {% endblock %}
