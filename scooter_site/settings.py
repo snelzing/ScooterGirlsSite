@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'scooter_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
     }
 }
 
@@ -118,11 +118,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+STATIC_ROOT =  "/var/www/elzinga.tech/static/"
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    r'C:\Users\shlby\Desktop\Devl\ScooterGirlsSite\static'
-]
+# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+STATICFILES_DIRS = r'C:\Users\shlby\Desktop\Devl\ScooterGirlsSite\static',
+
+
+
+# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 
 # Default primary key field type

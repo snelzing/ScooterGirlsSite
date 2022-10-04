@@ -155,7 +155,7 @@ to {
 }
 
 #dog-img {
-   max-width: 50rem;
+    max-width: 50rem;
     margin-top: 5rem;
 }
 
@@ -165,8 +165,14 @@ to {
 }
 
 @media (max-width: 640px) {
-    .pic-box {
-        visibility: hidden;
+    .homepage-pics {
+        width: 200px;
+        height: 350px;
+        float: left;
+    }
+
+    .container.mt-5 {
+        padding-top: 20rem;
     }
 
     .form {
