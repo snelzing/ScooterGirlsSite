@@ -1,4 +1,7 @@
 from django.contrib import admin
-from .models import Email
+from .models import Contact
 
-admin.site.register(Email)
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "message")
+

@@ -3,20 +3,24 @@
 
 {% block content %}
 
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
 <div style="margin:10rem; color: white">
-        <div class="form">
+    <div class="form">
 
-            <form action="" method="POST">
-                {% csrf_token %}
-                 {% bootstrap_form form %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
 
-                  {% buttons %}
-                    <button type="submit" class="btn btn-primary">
-                        Submit
-                    </button>
-  {% endbuttons %}
+            {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+            {% endbuttons %}
 
-            </form>
+            <div class="h-captcha" data-sitekey="581108a4-3780-41c2-85dd-1d81a197cf6b"></div>
+
+        </form>
     </div>
 </div>
 {% endblock %}

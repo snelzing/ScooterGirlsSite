@@ -3,9 +3,11 @@ from django.shortcuts import render, redirect, reverse
 from django.views.generic import TemplateView, View
 from main.forms import ContactForm
 from scripts.get_doggo import GetDoggo
-from .models import Email, Contact
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
+from django.conf import settings
+from main.models import Contact
+from requests import post
 
 
 class HomePageView(TemplateView):
@@ -40,22 +42,33 @@ class ContactView(View):
         return render(request, self.template_name, {"form": form})
 
     def post(self, request, *args, **kwargs):
-        if request.method == 'POST':
-            form = ContactForm(request.POST)
-            if form.is_valid():
-                subject = "Website Inquiry"
-                body = {
-                    'name': form.cleaned_data['name'],
-                    'email': form.cleaned_data['email'],
-                    'message': form.cleaned_data['message'],
-                }
-                message = "\n".join(body.values())
+        form = ContactForm(request.POST)
+        if not form.is_valid():
+            return render(request, self.template_name, {"form": form})
+        subject = "Website Inquiry"
+        body = {
+            'name': form.cleaned_data['name'],
+            'email': form.cleaned_data['email'],
+            'message': form.cleaned_data['message'],
+        }
+        message = "\n".join(body.values())
 
-                try:
-                    send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
-                except BadHeaderError:
-                    return HttpResponse('Invalid header found.')
+
+
+        sitekey='581108a4-3780-41c2-85dd-1d81a197cf6b'
+        token = request.POST.get('h-captcha-response')
+        response = post("https://hcaptcha.com/siteverify", {'secret': settings.HCAPTCHA_SECRET_KEY, 'response': token,
+                                                            'sitekey':sitekey},
+                        timeout=10)
+
+        contact = Contact(name=form.cleaned_data['name'],
+                          email=form.cleaned_data['email'],
+                          message=form.cleaned_data['message'])
+        print(response.status_code)
+        print(response.json())
+        print(settings.HCAPTCHA_SECRET_KEY)
+        print(sitekey)
+        contact.save()
 
         doggo = GetDoggo.get_doggo("https://random.dog/woof?filter=mp4,webm")
-        form = ContactForm()
-        return render(request, "thanks.html", {'form': form, 'doggo': doggo})
+        return render(request, "thanks.html", {'doggo': doggo})
