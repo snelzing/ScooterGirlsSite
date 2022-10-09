@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 SECRET_KEY = str(os.environ.get("DJANGO_SECRET_KEY"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
+# ALLOWED_HOSTS = ['snelzing.pythonanywhere.com', 'elzinga.tech']
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -119,10 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = "/var/www/elzinga.tech/static/"
+# STATIC_ROOT = ??
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = r'C:\Users\shlby\Desktop\Devl\ScooterGirlsSite\static',
