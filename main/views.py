@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from main.models import Contact
 from requests import post
+from django.core.exceptions import PermissionDenied
 
 
 class HomePageView(TemplateView):
@@ -53,22 +54,28 @@ class ContactView(View):
         }
         message = "\n".join(body.values())
 
-
-
-        sitekey='581108a4-3780-41c2-85dd-1d81a197cf6b'
+        sitekey = '581108a4-3780-41c2-85dd-1d81a197cf6b'
         token = request.POST.get('h-captcha-response')
         response = post("https://hcaptcha.com/siteverify", {'secret': settings.HCAPTCHA_SECRET_KEY, 'response': token,
-                                                            'sitekey':sitekey},
+                                                            'sitekey': sitekey},
                         timeout=10)
 
         contact = Contact(name=form.cleaned_data['name'],
                           email=form.cleaned_data['email'],
                           message=form.cleaned_data['message'])
         print(response.status_code)
-        print(response.json())
-        print(settings.HCAPTCHA_SECRET_KEY)
-        print(sitekey)
-        contact.save()
+        response_json = response.json()
+        print("here is the response json", response_json)
+
+        if response_json['success']:
+            contact.save()
+        else:
+            nope = "<div> Nope </div>"
+            return render(request, 'nope.html', {'nope': nope})
 
         doggo = GetDoggo.get_doggo("https://random.dog/woof?filter=mp4,webm")
         return render(request, "thanks.html", {'doggo': doggo})
+
+
+class NopePageView(TemplateView):
+    template_name = "nope.html"

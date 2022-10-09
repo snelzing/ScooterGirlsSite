@@ -12,13 +12,15 @@
             {% csrf_token %}
             {% bootstrap_form form %}
 
+
+            <div class="h-captcha" data-sitekey="581108a4-3780-41c2-85dd-1d81a197cf6b"></div>
+            <div>{{ nope }}</div>
+
             {% buttons %}
             <button type="submit" class="btn btn-primary">
                 Submit
             </button>
             {% endbuttons %}
-
-            <div class="h-captcha" data-sitekey="581108a4-3780-41c2-85dd-1d81a197cf6b"></div>
 
         </form>
     </div>

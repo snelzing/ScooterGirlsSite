@@ -6,7 +6,8 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'scooter_site.settings')
+    # Need to fix this line to not have to hardcode dev or prod
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'scooter_site.settings.dev')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
