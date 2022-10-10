@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv() # loads the configs from .env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
@@ -21,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = str(os.environ.get("DJANGO_SECRET_KEY"))
+SECRET_KEY = str(os.getenv('DJANGO_SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ['snelzing.pythonanywhere.com', 'elzinga.tech']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['snelzing.pythonanywhere.com', 'elzinga.tech']
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -115,14 +117,8 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-# STATIC_ROOT = ??
-
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = r'C:\Users\shlby\Desktop\Devl\ScooterGirlsSite\static',
@@ -142,4 +138,4 @@ STATICFILES_FINDERS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # hCaptcha
-HCAPTCHA_SECRET_KEY=str(os.environ.get("HCAPTCHA_SECRET_KEY"))
+CAPTCHA_SECRET_KEY=str(os.getenv('HCAPTCHA_SECRET_KEY'))
