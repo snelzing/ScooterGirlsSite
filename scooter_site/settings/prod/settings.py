@@ -118,11 +118,14 @@ USE_TZ = True
 
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = r'C:\Users\shlby\Desktop\Devl\ScooterGirlsSite\static',
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
